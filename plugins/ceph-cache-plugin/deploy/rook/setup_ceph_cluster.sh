@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# NOTE: csi-lvm under MiniKube environment has some issues because of the losetup
-# provided by busybox https://github.com/kubernetes/minikube/issues/8284. You
-# need to transfer in your Minibox VM(s) a losetup from util-linux. This script
-# has been tested against K8S 1.19.4, MiniKube v1.16.0
+# For Minikube installation see the tips here ./minikube/
 
 # kubectl addon to execute root commands on the each node
 # https://github.com/kvaps/kubectl-node-shell
