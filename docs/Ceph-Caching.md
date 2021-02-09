@@ -1,11 +1,5 @@
 **The instructions currently work only for the branch https://github.com/IBM/dataset-lifecycle-framework/tree/fixed-caching**
 
-# Minikube installation
-
-First we need to have a working cluster.
-
-`minikube start --memory='10G' --cpus=8 --disk-size='15g' --driver=docker`
-
 # Rook/Ceph Installation
 ## Method 1 (Recommended)
 
@@ -45,7 +39,18 @@ Now we can proceed with installing DLF.
 
 ## Method 2 (Testing)
 
-If you are after maximum performance we strongly advice to setup your ceph cluster according to the method above. However, for testing purposes and/or lacking of disk devices we provide a script `plugins/ceph-cache-plugin/deploy/rook/setup_ceph_cluster.sh` that installs rook with csi-lvm storage class. 
+If you are after maximum performance we strongly advice to set up your ceph cluster according to the method above. However, for testing purposes and/or lacking of disk devices we describe a method to test this inside minikube and provide a script `plugins/ceph-cache-plugin/deploy/rook/setup_ceph_cluster.sh` that installs rook with csi-lvm storage class. 
+
+
+### Minikube installation
+
+First we need to have a working cluster.
+
+`minikube start --memory='10G' --cpus=8 --disk-size='120g' --driver=docker`
+
+**Note:** if you change the disk-size of the minikube command make sure to tune accordingly the following parameters
+
+### CSI-LVM setup
 
 Before invoking the script you should tune according to your needs the following attributes
 
@@ -60,10 +65,10 @@ The command line arguments of the script are the names of the nodes that the csi
 
 ```bash
 cd plugins/ceph-cache-plugin/deploy/rook && \
-./setup_ceph_cluster.sh nodename1 nodename2
+./setup_ceph_cluster.sh nodename1 ...
 ```
 
-Keep in mind that the script will uninstall any previous installations of csi-lvm and rook-ceph. If no command line arguments are passed to the script this will result in uninstalling everything.
+Keep in mind that the script will uninstall any previous installations of csi-lvm and rook-ceph which made through the script. If no command line arguments are passed to the script this will result in uninstalling everything.
 # DLF Installation
 
 Go into the root of this directory and execute:
