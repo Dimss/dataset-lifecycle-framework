@@ -46,7 +46,7 @@ If you are after maximum performance we strongly advice to set up your ceph clus
 
 First we need to have a working cluster.
 
-`minikube start --memory='10G' --cpus=8 --disk-size='120g' --driver=docker`
+`minikube start --memory='10G' --cpus=8 --disk-size='35g' --driver=docker`
 
 **Note:** if you change the disk-size of the minikube command make sure to tune accordingly the following parameters
 

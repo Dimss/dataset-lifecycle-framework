@@ -138,7 +138,7 @@ spec:
             spec:
               resources:
                 requests:
-                  storage: 45Gi
+                  storage: 10Gi
               # IMPORTANT: Change the storage class depending on your environment (e.g. local-storage, gp2)
               storageClassName: csi-lvm
               volumeMode: Block

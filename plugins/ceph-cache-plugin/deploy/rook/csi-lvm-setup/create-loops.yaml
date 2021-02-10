@@ -22,7 +22,7 @@ spec:
           image: quay.io/ibm-dlf/create-loops
           env:
             - name: GIGA_SPACE
-              value: "100"
+              value: "30"
           volumeMounts:
             - mountPath: /dev
               name: dev
